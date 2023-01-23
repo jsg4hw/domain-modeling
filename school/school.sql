@@ -1,10 +1,13 @@
 -- Drops existing tables, so we start fresh with each
 -- run of this script
+-- sqlite3 school.sqlite3
+
 DROP TABLE IF EXISTS students;
 DROP TABLE IF EXISTS teachers;
 DROP TABLE IF EXISTS courses;
 DROP TABLE IF EXISTS sections;
 DROP TABLE IF EXISTS enrollments;
+
 
 CREATE TABLE students (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -14,6 +17,32 @@ CREATE TABLE students (
   phone_number TEXT
 );
 
+CREATE TABLE teachers (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  first_name TEXT,
+  last_name TEXT,
+  bio TEXT
+);
+
+CREATE TABLE courses (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name TEXT,
+  description TEXT
+);
+
+CREATE TABLE sections (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  course_id INTEGER,
+  teacher_id INTEGER
+);
+
+CREATE TABLE enrollments (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  student_id INTEGER,
+  section_id INTEGER
+
+);
 -- Create the rest of the tables
 
+SELECT 
 
